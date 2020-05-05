@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- include A-Frame obviously -->
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <!-- include ar.js for A-Frame -->
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<style>
+</style>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs>
+        
+        <a-assets>
+
+            <a-asset-item id="ob1" src="OBJECT\Dog.obj"></a-asset-item>
+            <a-asset-item id="ob2" src="OBJECT\Cat.obj"></a-asset-item>
+            <a-asset-item id="ob3" src="OBJECT\Robo.obj"></a-asset-item>
+			<img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        </a-assets>
+
+        <a-marker type='pattern' url='PATTERN\pattern-FS WoW Toys Shop.patt'>
+		
+			<!-- Shop Name-->
+			<a-text value="FS WoW Toys" height="6" width="7" align="center"
+                rotation="0 0 0" color="#07F1D5" weight="bold" position="0 -0.8 0" ></a-text>
+			 <a-text value="Toys for All Ages" height="4" width="4" align="center"
+                rotation="-90 0 0" color="#EAA70E" weight="bold" position="0 -0.9 0.3"></a-text>
+
+			<!-- Object 01-->
+			<a-entity obj-model="obj: #ob1;" material="src: TEXTURE\Dog_texture.jpg" position="0.2 0.2 0.4" rotation="-90 90 0"
+                scale="0.02 0.02 0.02"> </a-entity>
+            <a-text value="Modern Puppy \n Price: 3,000 LKR" height="3" width="3" align="center"
+                weight="bold" rotation="0 0 0" color="#FFFFFF" position="0 -0.2 0.4"></a-text>	
+				
+			<!-- Object 02-->
+			<a-entity obj-model="obj: #ob2;" material="src: TEXTURE\Cat_texture.jpg" position="-1 0.2 0.2" rotation="-90 0 0"
+                scale="0.03 0.03 0.03"> </a-entity>
+            <a-text value="Red Cat \n Price: 2,500 LKR" height="3" width="3" align="center"
+                weight="bold" rotation="0 0 0" color="#FFFFFF" position="-1 -0.2 0.2"></a-text>	
+				
+			<!-- Object 03-->
+			<a-entity obj-model="obj: #ob3;" material="src: TEXTURE\Robot_texture1.jpg" position="1 0.2 0.4" rotation="-90 0 0"
+                scale="0.05 0.05 0.05"> </a-entity>
+			<a-entity obj-model="obj: #ob3;" material="src: TEXTURE\Robot_texture2.jpg" position="1 0.2 0.4" rotation="-90 0 0"
+                scale="0.05 0.05 0.05"> </a-entity>
+            <a-text value="Mr.Robot \n Price: 4,000 LKR" height="2" width="3" align="center"
+                weight="bold" weight="bold" rotation="0 0 0" color="#FFFFFF" position="1 -0.2 0.4"></a-text>
+				
+			<a-plane color="#8C300A" height="20" width="50" position="-2 -2 -2"></a-plane>
+			<a-cylinder id="ground" src="#groundTexture" radius="20" height="0.1"position="-1.7 -1 0"></a-cylinder>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>
